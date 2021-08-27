@@ -102,18 +102,14 @@ export const DealershipInfo: React.FC = props => {
 
   const submitSearch = async e => {
     e.preventDefault();
+    if (data.search.length === 0) {
 
-    if (data.select.length > 0) {
-
-      setFilteredVehicles(vehicles.filter(v => v.type.name === data.select));
-      if (data.search.length > 0) {
-
-        setFilteredVehicles(filteredVehicles.filter(v => v.name.toLowerCase().indexOf(data.search.toLowerCase()) !== -1));
-      }
-    } else {
       setFilteredVehicles(vehicles.filter(v => v.name.toLowerCase().indexOf(data.search.toLowerCase()) !== -1));
+    } else {
 
+      setFilteredVehicles(filteredVehicles.filter(v => v.name.toLowerCase().indexOf(data.search.toLowerCase()) !== -1));
     }
+
     setData(initial);
 
   }
