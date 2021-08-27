@@ -1,13 +1,13 @@
-import { VehicleType } from 'generated/graphql';
+import { Vehicle } from 'generated/graphql';
 import * as React from 'react';
 
 const styles = require('./Vehicle.module.css');
 
 interface VehicleProps {
-    vehicle: VehicleType,
+    vehicle: Vehicle,
 }
 
-export const Vehicle: React.FC<VehicleProps> = ({ vehicle }): JSX.Element => {
+export const VehicleInfo: React.FC<VehicleProps> = ({ vehicle }): JSX.Element => {
 
 
     return (

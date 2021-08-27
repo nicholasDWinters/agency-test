@@ -2,15 +2,19 @@ import * as React from 'react';
 import _ from 'lodash';
 import { useParams } from 'react-router-dom';
 import rectangle from '../images/rectangle@2x.jpg';
-import { Vehicle } from '../components/Vehicle';
-import rrlogo from '../images/rrlogotransparent.jpg';
-import appStoreLogo from '../images/available-on-app-store-button-graphic.jpg';
-import googleLogo from '../images/background-copy.jpg';
+import { VehicleInfo } from '../components/Vehicle';
+import { Footer } from '../components/Footer';
 import searchIcon from '../images/search.png';
+import { Dealership } from 'generated/graphql';
 
-const styles = require('./DealershipInformation.module.css');
+const styles = require('./DealershipInfo.module.css');
 
-export const DealershipInfo: React.FC = props => {
+interface DealershipProps {
+  dealership: Dealership,
+}
+
+
+export const DealershipInfo: React.FC<DealershipProps> = props => {
   const initial = {
     search: '',
     select: ''
@@ -38,6 +42,22 @@ export const DealershipInfo: React.FC = props => {
       priceCentsPerDay
     }
   }}`;
+
+  React.useEffect(() => {
+
+    fetch('https://candidate-api-2020-03.ironforge.co/graphql', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: dealerQuery
+      })
+    }).then(response => response.json())
+      .then(data => setStates(data));
+  }, [dealerQuery])
+
+  React.useEffect(() => {
+
+  }, [filteredVehicles])
 
   function setStates(data: any) {
     setDealership(data.data.dealership);
@@ -114,21 +134,7 @@ export const DealershipInfo: React.FC = props => {
 
   }
 
-  React.useEffect(() => {
 
-    fetch('https://candidate-api-2020-03.ironforge.co/graphql', {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        query: dealerQuery
-      })
-    }).then(response => response.json())
-      .then(data => setStates(data));
-  }, [dealerQuery])
-
-  React.useEffect(() => {
-
-  }, [filteredVehicles])
 
   return (
     <div className={styles.fullScreen}>
@@ -160,33 +166,17 @@ export const DealershipInfo: React.FC = props => {
                 </div>
               </form>
 
-
-
-
             </div>
 
             <div className={styles.flexContainer}>
               {filteredVehicles.length ? filteredVehicles.map(vehicle =>
-                <Vehicle key={vehicle.id} vehicle={vehicle} />
+                <VehicleInfo key={vehicle.id} vehicle={vehicle} />
 
 
               ) : <p>Cannot get vehicles</p>}
             </div>
-            <img className={styles.appStoreLogo} src={appStoreLogo} alt='app store'></img>
-            <div className={styles.footer}>
-              <div>
-                <img className={styles.rrLogo} src={rrlogo} alt='rr logo'></img>
-                <span>Powered by Recreation Rentalz</span>
-              </div>
-              <div>
-                <span className={styles.footerSpan}>Terms of Use</span>
-                <span>Privacy Policy</span>
-              </div>
-              <div className={styles.googleDiv}>
-                <span className={styles.footerSpan}>Maps powered by </span>
-                <img className={styles.googleLogo} src={googleLogo} alt='google logo'></img>
-              </div>
-            </div>
+
+            <Footer />
           </div>
         </div>
 
