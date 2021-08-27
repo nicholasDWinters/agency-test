@@ -1,0 +1,213 @@
+.fullScreen {
+    text-align: center;
+    background-color: #fbfbfd;
+}
+
+.rectangle {
+    width: 100%;
+    height: 210px;
+   
+    margin: 0 0 59px;
+    background-image: linear-gradient(to bottom, var(--white), rgba(255, 255, 255, 0) 50%);
+    background-size: cover;
+  }
+
+.logoUrl {
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 100px;
+    object-fit: contain;
+    background-color: #1A1915;
+    border: 5px solid #ffffff;
+}
+
+.container {
+    position: relative;
+    top: -120px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.dName {
+    font-family: 'Inter';
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #000;
+}
+
+.dAddress {
+    font-family: 'Inter';
+    font-size: 20px;
+    color: #7f7f7f;
+    display: block;
+    margin-bottom: 50px;
+}
+
+.vehicleBox {
+    width: 425px;
+    height: 380px;
+    margin: 30px 19px 19px 34px;
+    padding: 0 0 18px;
+    border: solid 1px #e4e4e4;
+    background-color: var(--white);
+    text-align: left;
+    
+}
+
+.vImg {
+    width: 100%;
+  height: 200px;
+  margin: 0 0 25px;
+}
+
+.flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.vName {
+    
+  margin-left: 18px;
+  margin-top: 8px;
+  margin-bottom: 70px;
+  font-family: 'Inter';
+  font-size: 18px;
+  font-weight: bold;
+    display: block;
+  line-height: 1.22;
+  
+  color: #000;
+}
+
+.vType {
+    
+  margin-left: 18px;
+  font-family: 'Inter';
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 1.67px;
+  color: #d93940;
+  text-transform: uppercase;
+}
+
+.vAddress {
+    margin-left: 18px;
+    
+    font-family: 'Inter';
+    font-size: 12px;
+    line-height: 1.83;
+    color: #a1a1a1;
+}
+
+.vPriceBox {
+    width: 65px;
+    height: 60px;
+    background-color: #d93940;
+    position: relative;
+    top: -210px;
+    right: -70%;
+    padding: 8px 8px 9px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.vPriceBoxSpan {
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.83;
+    letter-spacing: normal;
+    color: white;
+    
+}
+
+.vPriceBoxPrice {
+    
+    padding-left: 2px;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: white;
+   
+}
+
+.footer {
+    
+    display: flex;
+    justify-content:space-between;
+    align-items: baseline;
+    
+  font-family: 'Inter';
+  font-size: 12px;
+
+  color: #a1a1a1;
+}
+
+.footerSpan {
+    margin-right: 11px;
+   
+}
+
+.appStoreLogo {
+    margin-top: 50px;
+    margin-bottom: 25px;
+    margin-left: 40px;
+}
+
+.googleDiv {
+    display: flex;
+    align-items: center;
+}
+
+.inputDiv {
+    margin-top: 55px;
+    margin-bottom: 30px;
+    display: inline;
+    margin-right: 12px;
+}
+
+.nameInput {
+    padding: 20px;
+    padding-left: 40px;
+    border-radius: 2%;
+    border: 1px solid grey;
+    width: 300px;
+}
+
+.searchIcon {
+    position: relative;
+    left: 25px;
+}
+
+.selectDiv {
+    display: inline;
+    margin-left: 10px;
+    font-size: 14px;
+   
+}
+
+.selectInput {
+    padding: 20px;
+    font-size: 14px;
+    border-radius: 2%;
+    border: 1px solid grey;
+    width: 300px;
+    margin-left: 2px;
+}
+
+.formsDiv {
+    text-align: left;
+    margin-left: 20px;
+}

@@ -1,0 +1,19 @@
+  query DealershipInformation($id: ID!) {
+    dealership(id: $id) {
+        name
+        address
+        logoUrl
+        vehicles {
+            id
+            type {
+                id
+                name
+                displayName
+            }
+        name
+        address
+        imageUrl
+        priceCentsPerDay
+        }
+    }
+}
