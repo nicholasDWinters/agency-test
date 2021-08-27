@@ -17,7 +17,7 @@ export const DealershipInfo: React.FC = props => {
   }
   const [dealership, setDealership] = React.useState({});
   const [vehicles, setVehicles] = React.useState([]);
-  const [types, setTypes] = React.useState([]);
+  const [types, setTypes] = React.useState({});
   const [data, setData] = React.useState(initial);
   const [filteredVehicles, setFilteredVehicles] = React.useState([]);
   const { id } = useParams<{ id?: string }>();
@@ -63,12 +63,14 @@ export const DealershipInfo: React.FC = props => {
         return 0;
       }
     }));
-    let arr = [];
+    let obj = {};
     for (let vehicle of data.data.dealership.vehicles) {
-      arr.push(vehicle.type.displayName)
+      obj[vehicle.type.name] = vehicle.type.displayName;
+
     }
 
-    setTypes(Array.from(new Set(arr)));
+    setTypes(obj);
+
   }
 
   const handleChange = e => {
@@ -89,7 +91,7 @@ export const DealershipInfo: React.FC = props => {
     console.log(data.select.length);
     if (data.select.length > 0) {
 
-      await setFilteredVehicles(vehicles.filter(v => v.type.displayName === data.select));
+      await setFilteredVehicles(vehicles.filter(v => v.type.name === data.select));
       if (data.search.length > 0) {
 
         await setFilteredVehicles(filteredVehicles.filter(v => v.name.toLowerCase().indexOf(data.search.toLowerCase()) !== -1));
@@ -124,7 +126,9 @@ export const DealershipInfo: React.FC = props => {
           <div><img className={styles.rectangle} alt='company background' src={rectangle}></img></div>
           <div className={styles.container}>
 
+
             <img className={styles.logoUrl} alt='logo' src={dealership.logoUrl}></img>
+
             <h1 className={styles.dName}>{dealership.name}</h1>
             <span className={styles.dAddress}>{dealership.address}</span>
             <div className={styles.formsDiv}>
@@ -137,7 +141,7 @@ export const DealershipInfo: React.FC = props => {
                 <div className={styles.selectDiv}>
                   <select className={styles.selectInput} name='select' onChange={handleChange} value={data.select}>
                     <option value=''>All Inventory</option>
-                    {types.map(type => <option key={type} value={type}>{type}</option>)}
+                    {Object.keys(types).map(type => <option key={type} value={type}>{types[type]}</option>)}
                   </select>
                 </div>
               </form>
