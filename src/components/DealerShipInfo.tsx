@@ -63,6 +63,7 @@ export const DealershipInfo: React.FC = props => {
         return 0;
       }
     }));
+
     let obj = {};
     for (let vehicle of data.data.dealership.vehicles) {
       obj[vehicle.type.name] = vehicle.type.displayName;
@@ -72,8 +73,20 @@ export const DealershipInfo: React.FC = props => {
     setTypes(obj);
 
   }
+  const selectChange = async (val) => {
+    if (val.length === 0) {
+      setFilteredVehicles(vehicles);
+    } else {
+      setFilteredVehicles(vehicles.filter(v => v.type.name === val));
+      if (data.search.length > 0) {
 
-  const handleChange = e => {
+        setFilteredVehicles(filteredVehicles.filter(v => v.name.toLowerCase().indexOf(data.search.toLowerCase()) !== -1));
+      }
+    }
+
+  }
+
+  const handleChange = async e => {
 
     const { name, value } = e.target;
 
@@ -83,18 +96,19 @@ export const DealershipInfo: React.FC = props => {
     }));
     if (e.target.name === 'select') {
 
+      await selectChange(e.target.value);
     }
   }
 
   const submitSearch = async e => {
     e.preventDefault();
-    console.log(data.select.length);
+
     if (data.select.length > 0) {
 
-      await setFilteredVehicles(vehicles.filter(v => v.type.name === data.select));
+      setFilteredVehicles(vehicles.filter(v => v.type.name === data.select));
       if (data.search.length > 0) {
 
-        await setFilteredVehicles(filteredVehicles.filter(v => v.name.toLowerCase().indexOf(data.search.toLowerCase()) !== -1));
+        setFilteredVehicles(filteredVehicles.filter(v => v.name.toLowerCase().indexOf(data.search.toLowerCase()) !== -1));
       }
     } else {
       setFilteredVehicles(vehicles.filter(v => v.name.toLowerCase().indexOf(data.search.toLowerCase()) !== -1));
@@ -115,6 +129,10 @@ export const DealershipInfo: React.FC = props => {
     }).then(response => response.json())
       .then(data => setStates(data));
   }, [dealerQuery])
+
+  React.useEffect(() => {
+
+  }, [filteredVehicles])
 
   return (
     <div className={styles.fullScreen}>

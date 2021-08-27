@@ -1,7 +1,7 @@
 import { VehicleType } from 'generated/graphql';
 import * as React from 'react';
 
-const styles = require('./DealershipInformation.module.css');
+const styles = require('./Vehicle.module.css');
 
 interface VehicleProps {
     vehicle: VehicleType,

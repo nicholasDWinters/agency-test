@@ -1,0 +1,113 @@
+
+.vehicleBox {
+    width: 305px;
+    height: 306px;
+    margin: 30px 19px 19px 34px;
+    
+    padding: 0 0 18px;
+    border: solid 1px #e4e4e4;
+    background-color: var(--white);
+    text-align: left;
+    
+}
+
+.vImg {
+    width: 100%;
+}
+
+.vImgDiv {
+     width: 100%;
+    height: 160px;
+    margin: 0 0 25px;
+   overflow: hidden;
+   position: relative; 
+  
+}
+
+.vName {
+    
+    margin-left: 18px;
+    
+    position: relative;
+    top: 8px;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: bold;
+      display: block;
+    line-height: 1.22;
+    
+    color: #000;
+  }
+  
+  .vType {
+      position: relative;
+      
+    margin-left: 18px;
+    font-family: 'Inter';
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.67px;
+    color: #d93940;
+    text-transform: uppercase;
+  }
+  
+  .vAddressDiv {
+      position: relative;
+      top: 35px;
+      margin-left: 18px;
+      
+  }
+  .vAddress {
+    
+      font-family: 'Inter';
+      font-size: 12px;
+      line-height: 1.83;
+      color: #a1a1a1;
+  }
+  
+  .vPriceBox {
+      width: 65px;
+      height: 60px;
+      background-color: #d93940;
+      position: relative;
+      top: -25%;
+      right: -70%;
+      padding: 8px 8px 9px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .vPriceBoxSpan {
+      font-family: 'Inter';
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.83;
+      letter-spacing: normal;
+      color: white;
+      
+  }
+  
+  .vPriceBoxPrice {
+      
+      padding-left: 2px;
+      font-family: 'Roboto';
+      font-size: 20px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: white;
+     
+  }
+  .vContent {
+      position: relative;
+      top: -25%;
+  }
